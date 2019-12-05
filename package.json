@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "",
   "scripts": {
-    "start": "ts-node dist/index.js",
+    "start": "node dist/index.js",
     "build": "tsc",
     "dev": "nodemon src/index.ts",
     "dev:debug": "nodemon --inspect src/index.ts"
