@@ -1,4 +1,21 @@
-type Customer {
+interface User {
+  _id: String!
+  firstName: String!
+  lastName: String!
+}
+
+type Employee implements User {
+  _id: String!
+  firstName: String!
+  lastName: String!
+  extension: String
+  email: String
+  officeCode: String
+  reportTo: Int
+  jobTitle: String
+}
+
+type Customer implements User {
   _id: String!
   firstName: String!
   lastName: String!
@@ -20,4 +37,5 @@ type Address {
 type Query {
   ping: String!
   customers: [Customer!]!
+  employees: [Employee!]!
 }

@@ -1,10 +1,21 @@
 import { Document } from 'mongoose'
 import { ObjectID } from 'mongodb'
 
-export interface ICustomer extends Document{
+export interface User extends Document {
   _id: ObjectID
   firstName: string
   lastName: string
+}
+
+export interface IEmployee extends User {
+  extension: string
+  email: string
+  officeCode: number
+  reportTo?: number
+  jobTitle: string
+}
+
+export interface ICustomer extends User{
   company: string
   phone: string
   addresses: Address[]
