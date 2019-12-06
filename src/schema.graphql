@@ -34,8 +34,22 @@ type Address {
   country: String
 }
 
+type Product {
+  _id: String
+  code: String
+  name: String
+  productLine: String
+  scale: String
+  vendor: String
+  description: String
+  quantityInStock: Int
+  buyPrice: Float
+  MSRP: Float
+}
+
 type Query {
   ping: String!
   customers: [Customer!]!
   employees: [Employee!]!
+  products: [Product!]!
 }

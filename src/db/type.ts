@@ -30,3 +30,16 @@ export interface Address {
   portalCode: string
   country: string
 }
+
+export interface IProduct extends Document{
+  _id: ObjectID
+  code: string
+  name: string
+  productLine: string
+  scale: string
+  vendor: string
+  description: string
+  quantityInStock: number
+  buyPrice: number
+  MSRP: number
+}

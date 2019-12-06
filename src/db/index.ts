@@ -1,5 +1,5 @@
 import mongoose, { Mongoose } from 'mongoose'
-import { Customer, Employee } from './models'
+import { Customer, Employee, Product } from './models'
 
 // set up mongoose promise
 mongoose.Promise = global.Promise
@@ -12,7 +12,8 @@ interface ConnectionConfig {
   password?: string
 }
 
-export function connectDB(config: ConnectionConfig): Promise<Mongoose> {
+export function connectDB(config: ConnectionConfig): 
+  Promise<Mongoose> {
   const { host, port, database, username, password } = config
   const account = username ? `${username}:${password}@` : ''
   const uri = `mongodb://${account}${host}:${port}/${database}`
@@ -21,5 +22,6 @@ export function connectDB(config: ConnectionConfig): Promise<Mongoose> {
 
 export const models = {
   Customer,
-  Employee
+  Employee,
+  Product
 }

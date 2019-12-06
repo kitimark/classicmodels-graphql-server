@@ -3,5 +3,7 @@ export const Query = {
   customers: (_parent: any, _args: any, { models }: any) => 
     models.Customer.find({}).exec(),
   employees: (_parent: any, _args: any, { models }: any) =>
-    models.Employee.find({}).exec()
+    models.Employee.find({}).exec(),
+  products: (_parent: any, _args: any, { models }: any) =>
+    models.Product.find({}).exec()
 }
