@@ -30,8 +30,10 @@ const server = new GraphQLServer({
   context
 })
 
+const { PORT, GRAPHQL_PORT } = process.env
+
 const options = {
-  port: process.env.GRAPHQL_PORT || 4000
+  port: PORT || GRAPHQL_PORT || 4000
 }
 
 server.start(options, () => {
