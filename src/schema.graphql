@@ -1,3 +1,10 @@
+type Customer {
+  _id: String!
+  firstName: String!
+  lastName: String!
+}
+
 type Query {
   ping: String!
+  customers: [Customer!]!
 }
