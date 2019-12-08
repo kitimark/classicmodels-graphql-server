@@ -53,5 +53,10 @@ type Query {
   customers: [Customer!]!
   employee(id: String!): Employee
   employees: [Employee!]!
-  products: [Product!]!
+  products(
+    scale: String, 
+    vendor: String
+  ): [Product!]!
+  scaleList: [String!],
+  vendorList: [String!]
 }
