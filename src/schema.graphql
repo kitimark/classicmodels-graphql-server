@@ -49,7 +49,9 @@ type Product {
 
 type Query {
   ping: String!
+  customer(id: String!): Customer
   customers: [Customer!]!
+  employee(id: String!): Employee
   employees: [Employee!]!
   products: [Product!]!
 }
