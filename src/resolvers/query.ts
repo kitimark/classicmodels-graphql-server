@@ -8,6 +8,10 @@ export const Query = {
     models.Employee.findById(id).exec(),
   employees: (_parent: any, _args: any, { models }: any) =>
     models.Employee.find({}).exec(),
+  product: (_parent: any, args: any, { models }: any) => {
+    const tranlate_args = models.Product.translateAliases(args)
+    return models.Product.findOne(tranlate_args).exec()
+  },
   products: (_parent: any, args: any, { models }: any) => {
     const tranlate_args = models.Product.translateAliases(args)
     return models.Product.find(tranlate_args).exec()
