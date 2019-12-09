@@ -30,7 +30,7 @@ type Address {
   addressLine2: String
   city: String
   state: String
-  portalCode: String
+  postalCode: String
   country: String
 }
 
