@@ -11,7 +11,7 @@ type Employee implements User {
   extension: String
   email: String
   officeCode: String
-  reportTo: Int
+  reportsTo: Int
   jobTitle: String
 }
 
