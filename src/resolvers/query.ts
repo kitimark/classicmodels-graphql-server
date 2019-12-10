@@ -16,6 +16,8 @@ export const Query = {
     const tranlate_args = models.Product.translateAliases(args)
     return models.Product.find(tranlate_args).exec()
   },
+  orders: (_parent: any, args: any, { models }: any) => 
+    models.Order.find({}).exec(),
   scaleList: async (_parent: any, _args: any, { models }: any) => {
     const result: Array<any> = await models.Product.aggregate([{ $group: {
         _id: "$productScale"

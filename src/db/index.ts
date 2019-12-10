@@ -1,5 +1,5 @@
 import mongoose, { Mongoose } from 'mongoose'
-import { Customer, Employee, Product } from './models'
+import { Customer, Employee, Product, Order } from './models'
 
 // set up mongoose promise
 mongoose.Promise = global.Promise
@@ -23,5 +23,6 @@ export function connectDB(config: ConnectionConfig):
 export const models = {
   Customer,
   Employee,
-  Product
+  Product,
+  Order
 }

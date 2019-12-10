@@ -22,6 +22,15 @@ export interface ICustomer extends User{
   creditLimit: number
 }
 
+export interface IOrder extends Document {
+  _id: ObjectID
+  orderNumber: number
+  orderDate: Date
+  requiredDate: Date
+  shippedDate: Date
+  status: string
+}
+
 export interface Address {
   addressLine1: string,
   addressLine2?: string,
