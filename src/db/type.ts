@@ -15,23 +15,23 @@ export interface IEmployee extends User {
   jobTitle: string
 }
 
-export interface ICustomer extends User{
+export interface ICustomer extends User {
   company: string
   phone: string
   addresses: Address[]
   creditLimit: number
 }
 
-export interface Address {
-  addressLine1: string,
-  addressLine2?: string,
+export interface Address extends Document {
+  addressLine1: string
+  addressLine2?: string
   city?: string
   state?: string
   portalCode: string
   country: string
 }
 
-export interface IProduct extends Document{
+export interface IProduct extends Document {
   _id: ObjectID
   code: string
   name: string

@@ -11,5 +11,4 @@ export const EmployeeSchema: Schema = new Schema({
   jobTitle: String
 })
 
-export const Employee: Model<IEmployee> = 
-  model<IEmployee>('Employee', EmployeeSchema)
+export const Employee: Model<IEmployee> = model<IEmployee>('Employee', EmployeeSchema)

@@ -29,5 +29,4 @@ export const CustomerSchema: Schema = new Schema({
   creditLimit: Number
 })
 
-export const Customer: Model<ICustomer> = 
-  model<ICustomer>('Customer', CustomerSchema)
+export const Customer: Model<ICustomer> = model<ICustomer>('Customer', CustomerSchema)

@@ -31,5 +31,4 @@ export const ProductSchema: Schema = new Schema({
   MSRP: Number
 })
 
-export const Product: Model<IProduct> = 
-  model<IProduct>('Product', ProductSchema)
+export const Product: Model<IProduct> = model<IProduct>('Product', ProductSchema)

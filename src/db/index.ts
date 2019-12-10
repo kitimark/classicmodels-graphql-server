@@ -12,8 +12,7 @@ interface ConnectionConfig {
   password?: string
 }
 
-export function connectDB(config: ConnectionConfig): 
-  Promise<Mongoose> {
+export function connectDB(config: ConnectionConfig): Promise<Mongoose> {
   const { host, port, database, username, password } = config
   const account = username ? `${username}:${password}@` : ''
   const uri = `mongodb://${account}${host}:${port}/${database}`
