@@ -89,6 +89,16 @@ type Query {
   productlines: [Productline!]!
   offices: [Office!]!
   payments: [Payment!]!
-  scaleList: [String!],
+  orders: [Order!]!
+  scaleList: [String!]
   vendorList: [String!]
-} 
+}
+
+type Order{
+  _id: String!
+  orderNumber: Int
+  orderDate: String
+  requiredDate: String
+  shippedDate: String
+  status: String
+}

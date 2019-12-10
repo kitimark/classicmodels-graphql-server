@@ -1,5 +1,13 @@
 import mongoose, { Mongoose } from 'mongoose'
-import { Customer, Employee, Product, Productline, Office, Payment } from './models'
+import { 
+  Customer, 
+  Employee, 
+  Product, 
+  Productline, 
+  Office, 
+  Payment,
+  Order
+} from './models'
 
 // set up mongoose promise
 mongoose.Promise = global.Promise
@@ -25,5 +33,6 @@ export const models = {
   Product,
   Productline,
   Office,
-  Payment
+  Payment,
+  Order
 }
