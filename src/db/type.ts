@@ -43,3 +43,24 @@ export interface IProduct extends Document {
   buyPrice: number
   MSRP: number
 }
+
+export interface IProductline extends Document {
+  _id: ObjectID
+  productline: string
+  textDescription: string
+  htmlDescription: string
+  image: string
+}
+
+export interface IOffice extends Address {
+  _id: ObjectID
+  code: string
+  territory: string
+}
+
+export interface IPayment extends Document {
+  _id: ObjectID
+  checkNumber: string
+  paymentDate: Date
+  amount: number
+}

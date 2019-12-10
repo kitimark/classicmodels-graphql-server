@@ -47,6 +47,34 @@ type Product {
   MSRP: Float
 }
 
+type Productline {
+  _id: String
+  productline: String
+  textDescription: String
+  htmlDescription: String
+  image: String
+}
+
+type Office {
+  _id: String
+  code: String
+  city: String
+  phone: String
+  addressline1: String
+  addressline2: String
+  state: String
+  country: String
+  postalCode: String
+  territory: String
+}
+
+type Payment {
+  _id: String
+  checkNumber: String
+  paymentDate: String
+  amount: Float
+}
+
 type Query {
   ping: String!
   customer(id: String!): Customer
@@ -58,6 +86,9 @@ type Query {
     scale: String, 
     vendor: String
   ): [Product!]!
+  productlines: [Productline!]!
+  offices: [Office!]!
+  payments: [Payment!]!
   scaleList: [String!],
   vendorList: [String!]
-}
+} 
