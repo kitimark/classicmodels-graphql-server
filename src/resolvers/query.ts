@@ -1,5 +1,11 @@
 export const Query = {
   ping: (): string => 'hello world',
+  me: (_parent: any, _args: any, { req }: any) => {
+    if (!req.session.employee) {
+      throw new Error('Unauthorized')
+    }
+    return req.session.employee
+  },
   customer: (_parent: any, { id }: any, { models }: any) => models.Customer.findById(id).exec(),
   customers: (_parent: any, _args: any, { models }: any) => models.Customer.find({}).exec(),
   employee: (_parent: any, { id }: any, { models }: any) => models.Employee.findById(id).exec(),

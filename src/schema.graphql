@@ -85,6 +85,7 @@ type Coupon {
 
 type Query {
   ping: String!
+  me: Employee!
   customer(id: String!): Customer
   customers: [Customer!]!
   employee(id: String!): Employee
