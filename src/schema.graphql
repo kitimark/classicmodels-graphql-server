@@ -1,3 +1,5 @@
+scalar ISODate
+
 interface User {
   _id: String!
   firstName: String!
@@ -71,14 +73,14 @@ type Office {
 type Payment {
   _id: String
   checkNumber: String
-  paymentDate: String
+  paymentDate: ISODate
   amount: Float
 }
 
 type Coupon {
   _id: String
   sale: String
-  expiredDate: String
+  expiredDate: ISODate
   totallity: Int
   remainder: Int
 }
@@ -104,9 +106,9 @@ type Query {
 type Order {
   _id: String!
   orderNumber: Int
-  orderDate: String
-  requiredDate: String
-  shippedDate: String
+  orderDate: ISODate
+  requiredDate: ISODate
+  shippedDate: ISODate
   status: String
 }
 
@@ -146,6 +148,12 @@ input Credentials {
   password: String!
 }
 
+input CouponInput {
+  sale: String
+  expiredDate: ISODate
+  totallity: Int
+}
+
 type Mutation {
   login(credentials: Credentials): Employee!
   logout: Status!
@@ -154,5 +162,6 @@ type Mutation {
   createCustomer(input: CustomerInput): Customer!
   removeCustomer(id: String!): Customer!
   removeProduct(id: String!): Product!
+  createCoupon(input: CouponInput): Coupon!
   removeCoupon(id: String!): Coupon!
 }

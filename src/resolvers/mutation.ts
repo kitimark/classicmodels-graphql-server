@@ -37,6 +37,11 @@ export const Mutation = {
     const deleteProduct = await models.Product.findByIdAndRemove(id)
     return deleteProduct
   },
+  createCoupon: async (_parent: any, { input }: any, { models }: any) => {
+    input.remainder = input.totallity
+    const tranlate_input = models.Coupon.translateAliases(input)
+    return models.Coupon.create(tranlate_input) 
+  },
   removeCoupon: async (_parent: any, { id }: any, { models }: any) => {
     const deleteCoupon = await models.Coupon.findByIdAndRemove(id)
     return deleteCoupon
