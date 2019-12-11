@@ -11,6 +11,15 @@ export const Mutation = {
     delete req.session.employee
     return { message: 'Logged out successfully' }
   },
+  createEmployee: async (_parent: any, { input }: any, { models, services }: any) => {
+    // hash password
+    const hashedPassword = await services.hasher.hashPassword(input.password)
+    input.password = hashedPassword
+
+    const tranlate_input = models.Employee.translateAliases(input)
+    // TODO: add reportsTo property
+    return models.Employee.create(tranlate_input)
+  },
   createCustomer: (_parent: any, { input }: any, { models }: any) => {
     const tranlate_input = models.Customer.translateAliases(input)
     return models.Customer.create(tranlate_input)

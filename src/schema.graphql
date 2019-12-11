@@ -114,6 +114,16 @@ type Status {
   message: String!
 }
 
+input EmployeeInput {
+  firstName: String!
+  lastName: String!
+  extension: String
+  email: String!
+  password: String!
+  officeCode: String
+  jobTitle: String
+}
+
 input CustomerInput {
   firstName: String!
   lastName: String!
@@ -139,6 +149,7 @@ input Credentials {
 type Mutation {
   login(credentials: Credentials): Employee!
   logout: Status!
+  createEmployee(input: EmployeeInput): Employee!
   createCustomer(input: CustomerInput): Customer!
   removeCustomer(id: String!): Customer!
   removeProduct(id: String!): Product!
