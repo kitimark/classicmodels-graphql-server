@@ -1,9 +1,12 @@
 import { GraphQLServer } from 'graphql-yoga'
+import session from 'express-session'
 import DotENV from 'dotenv'
 
 import { connectDB, models } from './db'
 import resolvers from './resolvers'
+import services from './services'
 import { Mongoose } from 'mongoose'
+import { ContextCallback, Context, Options } from 'graphql-yoga/dist/types'
 
 // read .env file
 DotENV.config()
@@ -18,10 +21,12 @@ const db: Promise<Mongoose> = connectDB({
 })
 
 // context in graphql
-const context = {
+const context: ContextCallback = (req) => ({
+  req: req.request,
   db,
-  models
-}
+  models,
+  services
+} as Context)
 
 // graphql end point config
 const server = new GraphQLServer({
@@ -32,9 +37,23 @@ const server = new GraphQLServer({
 
 const { PORT, GRAPHQL_PORT } = process.env
 
-const options = {
-  port: PORT || GRAPHQL_PORT || 4000
+const options: Options = {
+  port: PORT || GRAPHQL_PORT || 4000,
+  cors: {
+    credentials: true
+  }
 }
+
+// session middleware
+server.express.use(session({
+  name: 'qid',
+  secret: `some-random-secret-here`,
+  resave: true,
+  saveUninitialized: true,
+  cookie: {
+    secure: process.env.NODE_ENV === 'production'
+  }
+}))
 
 server.start(options, () => {
   console.log(`Server is running on port ${options.port}`)

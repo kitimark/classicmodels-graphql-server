@@ -6,6 +6,7 @@ export const EmployeeSchema: Schema = new Schema({
   lastName: String,
   extension: String,
   email: String,
+  password: String,
   officeCode: String,
   reportsTo: Number,
   jobTitle: String

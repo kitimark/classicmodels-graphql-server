@@ -10,6 +10,7 @@ export interface User extends Document {
 export interface IEmployee extends User {
   extension: string
   email: string
+  password: string
   officeCode: number
   reportTo?: number
   jobTitle: string

@@ -126,7 +126,13 @@ input AddressInput {
   country: String!
 }
 
+input Credentials {
+  email: String!
+  password: String!
+}
+
 type Mutation {
+  login(credentials: Credentials): Customer!
   createCustomer(input: CustomerInput): Customer!
   removeCustomer(id: String!): Customer!
 }
