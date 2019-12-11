@@ -1,8 +1,15 @@
 export const Mutation = {
   login: async (_parent: any, { credentials }: any, { req, services }: any) => {
-    const user = await services.authentication.verifyCredentials(credentials)
-    req.session.user = user
-    return user
+    const employee = await services.authentication.verifyCredentials(credentials)
+    req.session.employee = employee
+    return employee
+  },
+  logout: async (_parent: any, _args: any, { req }: any) => {
+    if (!req.session.employee) {
+      throw new Error('Unauthorized')
+    }
+    delete req.session.employee
+    return { message: 'Logged out successfully' }
   },
   createCustomer: (_parent: any, { input }: any, { models }: any) => {
     const tranlate_input = models.Customer.translateAliases(input)

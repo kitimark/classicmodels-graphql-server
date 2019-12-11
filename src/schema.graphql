@@ -109,6 +109,10 @@ type Order {
   status: String
 }
 
+type Status {
+  message: String!
+}
+
 input CustomerInput {
   firstName: String!
   lastName: String!
@@ -133,6 +137,7 @@ input Credentials {
 
 type Mutation {
   login(credentials: Credentials): Employee!
+  logout: Status!
   createCustomer(input: CustomerInput): Customer!
   removeCustomer(id: String!): Customer!
 }
