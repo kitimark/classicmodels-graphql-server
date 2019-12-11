@@ -1,7 +1,9 @@
 import { Schema, Model, model } from 'mongoose'
 import { ICoupon } from '../type'
+import { ObjectID } from 'bson'
 
 export const CouponSchema: Schema = new Schema({
+  _id: ObjectID,
   couponCode: {
     type: String,
     alias: 'code'

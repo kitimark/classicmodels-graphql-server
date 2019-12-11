@@ -1,6 +1,7 @@
 import { Schema, Model, model } from 'mongoose'
 
 import { ICustomer } from '../type'
+import { ObjectID } from 'bson'
 
 export const AddressSchema: Schema = new Schema({
   addressLine1: String,
@@ -12,6 +13,7 @@ export const AddressSchema: Schema = new Schema({
 })
 
 export const CustomerSchema: Schema = new Schema({
+  _id: ObjectID,
   contactFirstName: {
     type: String,
     alias: 'firstName'
@@ -26,7 +28,8 @@ export const CustomerSchema: Schema = new Schema({
   },
   phone: String,
   addresses: [AddressSchema],
-  creditLimit: Number
+  creditLimit: Number,
+  salesRepEmployee_id: ObjectID
 })
 
 export const Customer: Model<ICustomer> = model<ICustomer>('Customer', CustomerSchema)

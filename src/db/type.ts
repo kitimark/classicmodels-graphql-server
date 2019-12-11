@@ -14,6 +14,7 @@ export interface IEmployee extends User {
   officeCode: number
   reportTo?: number
   jobTitle: string
+  office_id?: ObjectID
 }
 
 export interface ICustomer extends User {
@@ -21,6 +22,7 @@ export interface ICustomer extends User {
   phone: string
   addresses: Address[]
   creditLimit: number
+  salesRepEmployee_id?: ObjectID
 }
 
 export interface IOrder extends Document {
@@ -30,11 +32,12 @@ export interface IOrder extends Document {
   requiredDate: Date
   shippedDate: Date
   status: string
+  customer_id?: ObjectID
 }
 
 export interface Address extends Document {
-  addressLine1: string,
-  addressLine2?: string,
+  addressLine1: string
+  addressLine2?: string
   city?: string
   state?: string
   portalCode: string
@@ -52,6 +55,7 @@ export interface IProduct extends Document {
   quantityInStock: number
   buyPrice: number
   MSRP: number
+  productline_id?: ObjectID
 }
 
 export interface IProductline extends Document {
@@ -73,6 +77,7 @@ export interface IPayment extends Document {
   checkNumber: string
   paymentDate: Date
   amount: number
+  customer_id?: ObjectID
 }
 
 export interface ICoupon extends Document {

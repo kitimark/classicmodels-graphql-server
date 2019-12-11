@@ -13,6 +13,7 @@ type Employee implements User {
   officeCode: String
   reportsTo: Int
   jobTitle: String
+  Office_id: String
 }
 
 type Customer implements User {
@@ -23,6 +24,7 @@ type Customer implements User {
   phone: String
   addresses: [Address]
   creditLimit: Int
+  salesRepEmployee_id: String
 }
 
 type Address {
@@ -45,6 +47,7 @@ type Product {
   quantityInStock: Int
   buyPrice: Float
   MSRP: Float
+  productline_id: String
 }
 
 type Productline {
@@ -73,6 +76,7 @@ type Payment {
   checkNumber: String
   paymentDate: String
   amount: Float
+  customer_id: String
 }
 
 type Coupon {
@@ -98,6 +102,7 @@ type Query {
   coupons: [Coupon!]!
   scaleList: [String!]
   vendorList: [String!]
+  # joinProductline: [String!]
 }
 
 type Order {

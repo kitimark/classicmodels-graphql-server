@@ -1,7 +1,9 @@
 import { Schema, Model, model } from 'mongoose'
 import { IEmployee } from '../type'
+import { ObjectID } from 'bson'
 
 export const EmployeeSchema: Schema = new Schema({
+  _id: ObjectID,
   firstName: String,
   lastName: String,
   extension: String,
@@ -9,7 +11,8 @@ export const EmployeeSchema: Schema = new Schema({
   password: String,
   officeCode: String,
   reportsTo: Number,
-  jobTitle: String
+  jobTitle: String,
+  office_id: ObjectID
 })
 
 export const Employee: Model<IEmployee> = model<IEmployee>('Employee', EmployeeSchema)

@@ -1,7 +1,9 @@
 import { Schema, Model, model } from 'mongoose'
 import { IProduct } from '../type'
+import { ObjectID } from 'bson'
 
 export const ProductSchema: Schema = new Schema({
+  _id: ObjectID,
   productCode: {
     type: String,
     alias: 'code'
@@ -28,7 +30,8 @@ export const ProductSchema: Schema = new Schema({
     alias: 'quantity'
   },
   buyPrice: Number,
-  MSRP: Number
+  MSRP: Number,
+  productline_id: ObjectID
 })
 
 export const Product: Model<IProduct> = model<IProduct>('Product', ProductSchema)
