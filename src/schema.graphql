@@ -128,4 +128,5 @@ input AddressInput {
 
 type Mutation {
   createCustomer(input: CustomerInput): Customer!
+  removeCustomer(id: String!): Customer!
 }
