@@ -73,3 +73,12 @@ export interface IPayment extends Document {
   paymentDate: Date
   amount: number
 }
+
+export interface ICoupon extends Document {
+  _id: ObjectID
+  code: string
+  sale: string
+  expiredDate: Date
+  totallity: number
+  remainder: number
+}

@@ -1,0 +1,21 @@
+import { Schema, Model, model } from 'mongoose'
+import { ICoupon } from '../type'
+
+export const CouponSchema: Schema = new Schema({
+  couponCode: {
+    type: String,
+    alias: 'code'
+  },
+  sale: String,
+  expiredDate: Date,
+  couponTotallity: {
+    type: Number,
+    alias: 'totallity'
+  },
+  couponRemainder: {
+    type: Number,
+    alias: 'remainder'
+  }
+})
+
+export const Coupon: Model<ICoupon> = model<ICoupon>('Coupon', CouponSchema)

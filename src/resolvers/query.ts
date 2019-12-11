@@ -15,8 +15,8 @@ export const Query = {
   productlines: (_parent: any, args: any, { models }: any) => models.Productline.find({}).exec(),
   offices: (_parent: any, args: any, { models }: any) => models.Office.find({}).exec(),
   payments: (_parent: any, args: any, { models }: any) => models.Payment.find({}).exec(),
-  orders: (_parent: any, args: any, { models }: any) => 
-    models.Order.find({}).exec(),
+  orders: (_parent: any, args: any, { models }: any) => models.Order.find({}).exec(),
+  coupons: (_parent: any, args: any, { models }: any) => models.Coupon.find({}).exec(),
   scaleList: async (_parent: any, _args: any, { models }: any) => {
     const result: Array<any> = await models.Product.aggregate([
       {

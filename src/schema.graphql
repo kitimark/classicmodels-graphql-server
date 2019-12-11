@@ -22,7 +22,7 @@ type Customer implements User {
   company: String!
   phone: String!
   addresses: [Address!]!
-  creditLimit: Int! 
+  creditLimit: Int!
 }
 
 type Address {
@@ -75,6 +75,14 @@ type Payment {
   amount: Float
 }
 
+type Coupon {
+  _id: String
+  sale: String
+  expiredDate: String
+  totallity: Int
+  remainder: Int
+}
+
 type Query {
   ping: String!
   customer(id: String!): Customer
@@ -82,19 +90,17 @@ type Query {
   employee(id: String!): Employee
   employees: [Employee!]!
   product(code: String!): Product
-  products(
-    scale: String, 
-    vendor: String
-  ): [Product!]!
+  products(scale: String, vendor: String): [Product!]!
   productlines: [Productline!]!
   offices: [Office!]!
   payments: [Payment!]!
   orders: [Order!]!
+  coupons: [Coupon!]!
   scaleList: [String!]
   vendorList: [String!]
 }
 
-type Order{
+type Order {
   _id: String!
   orderNumber: Int
   orderDate: String

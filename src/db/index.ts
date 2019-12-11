@@ -6,7 +6,8 @@ import {
   Productline, 
   Office, 
   Payment,
-  Order
+  Order,
+  Coupon
 } from './models'
 
 // set up mongoose promise
@@ -34,5 +35,6 @@ export const models = {
   Productline,
   Office,
   Payment,
-  Order
+  Order,
+  Coupon
 }
