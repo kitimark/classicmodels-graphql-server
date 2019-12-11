@@ -1,7 +1,7 @@
 interface User {
   _id: String!
-  firstName: String!
-  lastName: String!
+  firstName: String
+  lastName: String
 }
 
 type Employee implements User {
@@ -17,12 +17,12 @@ type Employee implements User {
 
 type Customer implements User {
   _id: String!
-  firstName: String!
-  lastName: String!
-  company: String!
-  phone: String!
-  addresses: [Address!]!
-  creditLimit: Int!
+  firstName: String
+  lastName: String
+  company: String
+  phone: String
+  addresses: [Address]
+  creditLimit: Int
 }
 
 type Address {
@@ -107,4 +107,25 @@ type Order {
   requiredDate: String
   shippedDate: String
   status: String
+}
+
+input CustomerInput {
+  firstName: String!
+  lastName: String!
+  company: String!
+  phone: String!
+  addresses: [AddressInput]
+}
+
+input AddressInput {
+  addressLine1: String
+  addressLine2: String
+  city: String
+  state: String
+  postalCode: String
+  country: String
+}
+
+type Mutation {
+  createCustomer(input: CustomerInput): Customer!
 }
