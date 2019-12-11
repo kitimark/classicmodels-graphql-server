@@ -36,5 +36,9 @@ export const Mutation = {
   removeProduct: async (_parent: any, { id }: any, { models }: any) => { 
     const deleteProduct = await models.Product.findByIdAndRemove(id)
     return deleteProduct
+  },
+  removeCoupon: async (_parent: any, { id }: any, { models }: any) => {
+    const deleteCoupon = await models.Coupon.findByIdAndRemove(id)
+    return deleteCoupon
   }
 }

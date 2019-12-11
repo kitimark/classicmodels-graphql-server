@@ -154,4 +154,5 @@ type Mutation {
   createCustomer(input: CustomerInput): Customer!
   removeCustomer(id: String!): Customer!
   removeProduct(id: String!): Product!
+  removeCoupon(id: String!): Coupon!
 }
