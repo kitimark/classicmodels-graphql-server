@@ -8,6 +8,9 @@ export const Mutation = {
     const tranlate_input = models.Customer.translateAliases(input)
     return models.Customer.create(tranlate_input)
   },
-  removeCustomer: (_parent: any, { id }: any, { models }: any) =>
-    models.Customer.findByIdAndRemove(id)
+  removeCustomer: async (_parent: any, { id }: any, { models }: any) => {
+    // TODO: Check permission
+    const deletedUser = await models.Customer.findByIdAndRemove(id)
+    return deletedUser
+  }
 }
