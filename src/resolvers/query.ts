@@ -1,5 +1,11 @@
 export const Query = {
   ping: (): string => 'hello world',
+  me: (_parent: any, _args: any, { req }: any) => {
+    if (!req.session.employee) {
+      throw new Error('Unauthorized')
+    }
+    return req.session.employee
+  },
   customer: (_parent: any, { id }: any, { models }: any) =>
     models.Customer.findById(id).exec(),
   customers: (_parent: any, _args: any, { models }: any) =>
@@ -46,18 +52,4 @@ export const Query = {
     ]).exec()
     return result.map(obj => obj._id)
   }
-  // ,
-  // joinProductline: async (_parent: any, _args: any, { models }: any) => {
-  //   const result: Array<any> = await models.Productline.aggregate([
-  //     {
-  //       $lookup: {
-  //         from: 'products',
-  //         localField: 'product_id',
-  //         foreignField: '_id',
-  //         as: 'productline'
-  //       }
-  //     }
-  //   ]).exec()
-  //   return result.map(obj => obj.find({}))
-  // }
 }

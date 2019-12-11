@@ -1,3 +1,5 @@
+scalar ISODate
+
 interface User {
   _id: String!
   firstName: String!
@@ -74,7 +76,7 @@ type Office {
 type Payment {
   _id: String
   checkNumber: String
-  paymentDate: String
+  paymentDate: ISODate
   amount: Float
   customer_id: String
 }
@@ -82,13 +84,14 @@ type Payment {
 type Coupon {
   _id: String
   sale: String
-  expiredDate: String
+  expiredDate: ISODate
   totallity: Int
   remainder: Int
 }
 
 type Query {
   ping: String!
+  me: Employee!
   customer(id: String!): Customer
   customers: [Customer!]!
   employee(id: String!): Employee
@@ -108,10 +111,24 @@ type Query {
 type Order {
   _id: String!
   orderNumber: Int
-  orderDate: String
-  requiredDate: String
-  shippedDate: String
+  orderDate: ISODate
+  requiredDate: ISODate
+  shippedDate: ISODate
   status: String
+}
+
+type Status {
+  message: String!
+}
+
+input EmployeeInput {
+  firstName: String!
+  lastName: String!
+  extension: String
+  email: String!
+  password: String!
+  officeCode: String
+  jobTitle: String
 }
 
 input CustomerInput {
@@ -136,8 +153,20 @@ input Credentials {
   password: String!
 }
 
+input CouponInput {
+  sale: String
+  expiredDate: ISODate
+  totallity: Int
+}
+
 type Mutation {
   login(credentials: Credentials): Employee!
+  logout: Status!
+  createEmployee(input: EmployeeInput): Employee!
+  removeEmployee(id: String!): Employee!
   createCustomer(input: CustomerInput): Customer!
   removeCustomer(id: String!): Customer!
+  removeProduct(id: String!): Product!
+  createCoupon(input: CouponInput): Coupon!
+  removeCoupon(id: String!): Coupon!
 }
