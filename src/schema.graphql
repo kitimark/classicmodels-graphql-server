@@ -150,6 +150,7 @@ type Mutation {
   login(credentials: Credentials): Employee!
   logout: Status!
   createEmployee(input: EmployeeInput): Employee!
+  removeEmployee(id: String!): Employee!
   createCustomer(input: CustomerInput): Customer!
   removeCustomer(id: String!): Customer!
   removeProduct(id: String!): Product!

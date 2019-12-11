@@ -20,6 +20,10 @@ export const Mutation = {
     // TODO: add reportsTo property
     return models.Employee.create(tranlate_input)
   },
+  removeEmployee: async (_parent: any, { id }: any, { models }: any) => {
+    const deleteEmployee = await models.Employee.findByIdAndRemove(id)
+    return deleteEmployee
+  },
   createCustomer: (_parent: any, { input }: any, { models }: any) => {
     const tranlate_input = models.Customer.translateAliases(input)
     return models.Customer.create(tranlate_input)
