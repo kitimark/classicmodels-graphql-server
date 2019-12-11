@@ -51,7 +51,7 @@ server.express.use(session({
   resave: true,
   saveUninitialized: true,
   cookie: {
-    secure: process.env.NODE_ENV === 'production'
+    secure: false
   }
 }))
 
