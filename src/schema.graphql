@@ -132,7 +132,7 @@ input Credentials {
 }
 
 type Mutation {
-  login(credentials: Credentials): Customer!
+  login(credentials: Credentials): Employee!
   createCustomer(input: CustomerInput): Customer!
   removeCustomer(id: String!): Customer!
 }
