@@ -141,4 +141,5 @@ type Mutation {
   logout: Status!
   createCustomer(input: CustomerInput): Customer!
   removeCustomer(id: String!): Customer!
+  removeProduct(id: String!): Product!
 }

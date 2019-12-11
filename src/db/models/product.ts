@@ -4,6 +4,8 @@ import { IProduct } from '../type'
 export const ProductSchema: Schema = new Schema({
   productCode: {
     type: String,
+    unique: true,
+    index: true,
     alias: 'code'
   },
   productName: {
@@ -13,10 +15,12 @@ export const ProductSchema: Schema = new Schema({
   productLine: String,
   productScale: {
     type: String,
+    index: true,
     alias: 'scale'
   },
   productVendor: {
     type: String,
+    index: true,
     alias: 'vendor'
   },
   productDescription: {

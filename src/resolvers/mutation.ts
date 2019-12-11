@@ -19,5 +19,9 @@ export const Mutation = {
     // TODO: Check permission
     const deletedUser = await models.Customer.findByIdAndRemove(id)
     return deletedUser
+  },
+  removeProduct: async (_parent: any, { id }: any, { models }: any) => { 
+    const deleteProduct = await models.Product.findByIdAndRemove(id)
+    return deleteProduct
   }
 }
