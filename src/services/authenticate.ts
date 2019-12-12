@@ -34,3 +34,15 @@ export class Authentication {
     return foundUser
   }
 }
+
+export const authorize = (req: any, roles: string[] | undefined = undefined) => {
+  if (!req.session.employee) {
+    throw new Error('Unauthorized, Please Login')
+  }
+  if (roles) {
+    const data = roles.find(role => role == req.session.employee.jobTitle)
+    if (!data) {
+      throw new Error(`Permission denied, ${roles} require`)
+    }
+  }
+}

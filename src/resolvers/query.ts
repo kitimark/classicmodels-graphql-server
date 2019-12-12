@@ -1,14 +1,4 @@
-const authorize = (req: any, roles: string[] | undefined = undefined) => {
-  if (!req.session.employee) {
-    throw new Error('Unauthorized, Please Login')
-  }
-  if (roles) {
-    const data = roles.find(role => role == req.session.employee.jobTitle)
-    if (!data) {
-      throw new Error(`Permission denied, ${roles} require`)
-    }
-  }
-}
+import { authorize } from '../services/authenticate'
 
 export const Query = {
   ping: (): string => 'hello world',
