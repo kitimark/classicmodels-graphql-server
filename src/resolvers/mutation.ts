@@ -45,9 +45,13 @@ export const Mutation = {
     { models, req }: any
   ) => {
     authorize(req)
-    const updateUser = await models.Customer.findOneAndUpdate({
-      _id: Types.ObjectId(id)
-    })
+    const tranlate_input = models.Customer.translateAliases(input)
+    const updateUser = await models.Customer.findOneAndUpdate(
+      {
+        _id: Types.ObjectId(id)
+      },
+      tranlate_input
+    )
     return updateUser
   },
   removeCustomer: async (_parent: any, { id }: any, { models, req }: any) => {
