@@ -1,14 +1,5 @@
-const authorize = (req: any, roles: string[] | undefined = undefined) => {
-  if (!req.session.employee) {
-    throw new Error('Unauthorized, Please Login')
-  }
-  if (roles) {
-    const data = roles.find(role => role == req.session.employee.jobTitle)
-    if (!data) {
-      throw new Error(`Permission denied, ${roles} require`)
-    }
-  }
-}
+import { authorize } from '../services/authenticate'
+import { Types } from 'mongoose'
 
 export const Query = {
   ping: (): string => 'hello world',
@@ -30,7 +21,7 @@ export const Query = {
   },
   employees: (_parent: any, _args: any, { models, req }: any) => {
     authorize(req)
-    return models.Employee.find({}).exec()
+    return models.Employee.find({ reportsTo_id: new Types.ObjectId(req.session.employee._id) }).exec()
   },
   product: (_parent: any, args: any, { models }: any) => {
     const tranlate_args = models.Product.translateAliases(args)
