@@ -25,6 +25,7 @@ export const Mutation = {
     // hash password
     const hashedPassword = await services.hasher.hashPassword(input.password)
     input.password = hashedPassword
+    input.reportsTo = Types.ObjectId(req.session.employee._id)
 
     const tranlate_input = models.Employee.translateAliases(input)
     // TODO: add reportsTo property
