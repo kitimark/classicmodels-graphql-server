@@ -165,6 +165,7 @@ type Mutation {
   createEmployee(input: EmployeeInput): Employee!
   removeEmployee(id: String!): Employee!
   createCustomer(input: CustomerInput): Customer!
+  updateCustomer(id: String!, input: CustomerInput): Customer!
   removeCustomer(id: String!): Customer!
   removeProduct(id: String!): Product!
   createCoupon(input: CouponInput): Coupon!
