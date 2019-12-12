@@ -3,7 +3,6 @@ import { IEmployee } from '../type'
 import { ObjectID } from 'bson'
 
 export const EmployeeSchema: Schema = new Schema({
-  _id: ObjectID,
   firstName: String,
   lastName: String,
   extension: String,

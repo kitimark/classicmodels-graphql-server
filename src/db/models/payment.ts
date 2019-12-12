@@ -3,7 +3,6 @@ import { IPayment } from '../type'
 import { ObjectID } from 'bson'
 
 export const PaymentSchema: Schema = new Schema({
-  _id: ObjectID,
   checkNumber: String,
   paymentDate: Date,
   amount: Number,

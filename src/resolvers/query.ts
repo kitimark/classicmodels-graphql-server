@@ -1,4 +1,14 @@
-import { authorize } from '../services/authenticate'
+const authorize = (req: any, roles: string[] | undefined = undefined) => {
+  if (!req.session.employee) {
+    throw new Error('Unauthorized, Please Login')
+  }
+  if (roles) {
+    const data = roles.find(role => role == req.session.employee.jobTitle)
+    if (!data) {
+      throw new Error(`Permission denied, ${roles} require`)
+    }
+  }
+}
 
 export const Query = {
   ping: (): string => 'hello world',
@@ -41,8 +51,8 @@ export const Query = {
     return models.Order.find({}).exec()
   },
   coupons: (_parent: any, args: any, { models, req }: any) => {
-    authorize(req, ['VP Sales', 'VP Marketing'])
-    models.Coupon.find({}).exec()
+    authorize(req)
+    return models.Coupon.find({}).exec()
   },
   scaleList: async (_parent: any, _args: any, { models }: any) => {
     const result: Array<any> = await models.Product.aggregate([

@@ -13,7 +13,6 @@ export const AddressSchema: Schema = new Schema({
 })
 
 export const CustomerSchema: Schema = new Schema({
-  _id: ObjectID,
   contactFirstName: {
     type: String,
     alias: 'firstName'

@@ -4,7 +4,6 @@ import { IOrder } from '../type'
 import { ObjectID } from 'bson'
 
 export const OrderSchema: Schema = new Schema({
-  _id: ObjectID,
   orderNumber: Number,
   orderDate: Date,
   requiredDate: Date,

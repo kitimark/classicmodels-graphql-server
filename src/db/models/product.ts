@@ -3,7 +3,6 @@ import { IProduct } from '../type'
 import { ObjectID } from 'bson'
 
 export const ProductSchema: Schema = new Schema({
-  _id: ObjectID,
   productCode: {
     type: String,
     unique: true,
