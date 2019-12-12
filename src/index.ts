@@ -40,6 +40,7 @@ const { PORT, GRAPHQL_PORT } = process.env
 const options: Options = {
   port: PORT || GRAPHQL_PORT || 4000,
   cors: {
+    origin: "http://localhost:3000",
     credentials: true
   }
 }
